@@ -31,11 +31,21 @@ class App extends Component {
   render() {
     console.log(this.state);
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-10 mx-auto col-md-8 mt-5">
-            <TodoInput />
-            <TodoList />
+      <div className="container border border-dark">
+        <div className="row border border-primary">
+          <div className="col-10 mx-auto col-md-8 mt-5 border border-warning">
+            <h3 className="text-center text-capitalize">Todo input</h3>
+            <TodoInput
+              item={this.state.item}
+              handleChange={this.handleChange}
+              handleSubmit={this.handleSubmit}
+              editItem={this.state.editItem}
+            />
+            <TodoList
+              items={this.state.items}
+              handleDelete={this.handleDelete}
+              handleEdit={this.handleDelete}
+            />
           </div>
         </div>
       </div>
