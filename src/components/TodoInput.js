@@ -20,7 +20,11 @@ export default class TodoInput extends Component {
               onChange={handleChange}
             />
           </div>
-          <button type="submit">Add </button>
+          <div className="d-grid col-12 mx-auto">
+            <button type="submit" className="btn btn-block btn-primary mt-2">
+              Add Item
+            </button>
+          </div>
         </form>
       </div>
     );
