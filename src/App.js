@@ -6,8 +6,8 @@ import TodoList from "./components/TodoList";
 class App extends Component {
   state = {
     items: [
-      { id: 1, title: "abcd" },
-      { id: 2, title: "xyz" },
+      // { id: 1, title: "abcd" },
+      // { id: 2, title: "xyz" },
     ],
     id: uuid(),
     item: "",
@@ -25,15 +25,12 @@ class App extends Component {
       title: this.state.item,
     };
     const updatedItems = [...this.state.items, newItem];
-    this.setState(
-      {
-        items: updatedItems,
-        item: "",
-        id: uuid(),
-        editItem: false,
-      },
-      () => console.log(this.state)
-    );
+    this.setState({
+      items: updatedItems,
+      item: "",
+      id: uuid(),
+      editItem: false,
+    });
   };
   clearList = () => {
     console.log("clearlist");
@@ -60,7 +57,7 @@ class App extends Component {
             <TodoList
               items={this.state.items}
               handleDelete={this.handleDelete}
-              handleEdit={this.handleDelete}
+              handleEdit={this.handleEdit}
             />
           </div>
         </div>
