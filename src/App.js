@@ -14,10 +14,26 @@ class App extends Component {
     editItem: false,
   };
   handleChange = (e) => {
-    console.log("handleChange");
+    this.setState({
+      item: e.target.value,
+    });
   };
   handleSubmit = (e) => {
-    console.log("handleSubmit");
+    e.preventDefault();
+    const newItem = {
+      id: this.state.id,
+      title: this.state.item,
+    };
+    const updatedItems = [...this.state.items, newItem];
+    this.setState(
+      {
+        items: updatedItems,
+        item: "",
+        id: uuid(),
+        editItem: false,
+      },
+      () => console.log(this.state)
+    );
   };
   clearList = () => {
     console.log("clearlist");
@@ -29,7 +45,7 @@ class App extends Component {
     console.log(`handle edit ${id}`);
   };
   render() {
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className="container border border-dark">
         <div className="row border border-primary">
