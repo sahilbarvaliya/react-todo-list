@@ -17,7 +17,7 @@ export default class TodoList extends Component {
           );
         })}
         <button
-          type="submit"
+          type="button"
           className="btn btn-danger btn-block mt-5"
           onClick={clearList}
         >

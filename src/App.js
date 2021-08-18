@@ -5,10 +5,7 @@ import TodoInput from "./components/TodoInput";
 import TodoList from "./components/TodoList";
 class App extends Component {
   state = {
-    items: [
-      // { id: 1, title: "abcd" },
-      // { id: 2, title: "xyz" },
-    ],
+    items: [],
     id: uuid(),
     item: "",
     editItem: false,
@@ -33,10 +30,15 @@ class App extends Component {
     });
   };
   clearList = () => {
-    console.log("clearlist");
+    this.setState({
+      items: [],
+    });
   };
   handleDelete = (id) => {
-    console.log(`handle delete ${id}`);
+    const filteredItems = this.state.items.filter((item) => item.id !== id);
+    this.setState({
+      items: filteredItems,
+    });
   };
   handleEdit = (id) => {
     console.log(`handle edit ${id}`);
@@ -58,6 +60,7 @@ class App extends Component {
               items={this.state.items}
               handleDelete={this.handleDelete}
               handleEdit={this.handleEdit}
+              clearList={this.clearList}
             />
           </div>
         </div>
