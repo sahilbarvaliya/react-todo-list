@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+import "./todoitem.css";
 export default class TodoItem extends Component {
   render() {
     const { title, handleDelete, handleEdit } = this.props;
